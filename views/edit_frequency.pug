@@ -1,0 +1,14 @@
+extends admin_layout
+
+block content
+    h1 Edit Frequency
+    form(method="POST" action=`/my-sat/frequency/${frequency._id}/update`)
+      .mb-3
+        label(for="frequency") Frequency:
+        input#frequency.form-control(type="text" name="frequency" value=frequency.frequency required)
+
+      .mb-3
+        label(for="channels") Channels (comma-separated):
+        input#channels.form-control(type="text" name="channels" value=frequency.channels.map(c => c.name).join(', ') required)
+
+      button.btn.btn-primary(type="submit") Update Frequency

@@ -1,0 +1,15 @@
+extends admin_layout
+
+block content
+    h1 Edit Product
+    form(action=`/my-sat/product/${product._id}/update` method="POST")
+      .mb-3
+        label(for="title") Title
+        input.form-control(type="text" id="title" name="title" value=product.title required)
+      .mb-3
+        label(for="description") Description
+        textarea.form-control(id="description" name="description" rows="4" required)= product.description
+      .mb-3
+        label(for="price") Price (GHC)
+        input.form-control(type="number" id="price" name="price" value=product.price required)
+      button.btn.btn-primary(type="submit") Update Product

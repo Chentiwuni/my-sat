@@ -1,0 +1,45 @@
+extends admin_layout
+
+block content
+    h1 Admin Dashboard
+    .row
+      .col-md-3
+        .card.mb-4.shadow-sm.border.border-primary
+          .card-header
+            h4 Satellite
+          .card-body
+            ul.list-group.list-group-flush
+              li.list-group-item
+                a(href='/my-sat/satellite/create', class='nav-link') Add New Satellite
+              li.list-group-item
+                a(href='/my-sat/manage_satellites', class='nav-link') Manage Satellite List
+      .col-md-3
+        .card.mb-4.shadow-sm.border.border-primary
+          .card-header
+            h4 Product
+          .card-body
+            ul.list-group.list-group-flush
+              li.list-group-item
+                a(href='/my-sat/product/create', class='nav-link') Add New Product
+              li.list-group-item
+                a(href='/my-sat/manage_products', class='nav-link') Manage  Product List
+      .col-md-3
+        .card.mb-4.shadow-sm.border.border-primary
+          .card-header
+            h4 Admin
+          .card-body
+            ul.list-group.list-group-flush
+              li.list-group-item
+                a(href='/my-sat/create_admin', class='nav-link') Add New Admin
+              li.list-group-item
+                a(href='/my-sat/manage_admins', class='nav-link') Manage Admins
+      .col-md-3
+        .card.mb-4.shadow-sm.border.border-primary
+          .card-header
+            h4 Frequency
+          .card-body
+            ul.list-group.list-group-flush
+              li.list-group-item
+                a(href='/my-sat/frequency/create', class='nav-link') Add New Frequency
+              li.list-group-item
+                a(href='/my-sat/manage_frequencies', class='nav-link') Manage Frequency List

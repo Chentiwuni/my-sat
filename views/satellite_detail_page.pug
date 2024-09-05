@@ -1,0 +1,31 @@
+extends layout
+
+block content
+    .mt-3.d-flex.justify-content-center.track-text
+      h4 #{satellite.name} Frequencies
+
+    .sat-description.mt-3
+      p This satellite is #{satellite.name}, located at #{satellite.position}°. #{satellite.description}
+      p NOTE: Each satellite is made up of a list of frequencies, and each frequency has a number of channels under it. You can track that satellite by using just one of its frequencies.
+      p 
+        | NOTE: Popular frequency: 
+        span.tracking-frequency #{frequencies[0] ? frequencies[0].frequency : "No frequency available"}
+
+    hr
+
+    //- Header row for frequencies and channels
+    .row
+      .col-5.border.border-dark-subtle
+        h5 FREQUENCY
+      .col-7.border.border-dark-subtle
+        h5 CHANNEL NAME
+
+    //- Loop through frequencies and display them with their channels
+    each frequency in frequencies
+      .row
+        .col-5.d-flex.align-items-center.border.border-dark-subtle.frequency
+          h5 #{frequency.frequency} #{frequency.polarization} #{frequency.symbolRate}
+        .col-7.border.border-dark-subtle.channels
+          each channel in frequency.channels
+            p
+              h6= channel.name

@@ -1,0 +1,18 @@
+extends admin_layout
+
+block content
+    h1 Manage Products
+    table.table.table-bordered.table-hover
+      thead
+        tr
+          th Product Name
+          th Price
+          th Actions
+      tbody
+        each product in all_products
+          tr
+            td= product.title
+            td= product.price
+            td
+              a.btn.btn-warning(href=`/my-sat/product/${product._id}/update`) UPDATE
+              a.btn.btn-danger(href=`/my-sat/product/${product._id}/delete`) DELETE

@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 Edit Satellite
+  form(action=`/my-sat/satellite/${satellite._id}/update` method="POST")
+    div.form-group
+      label(for="name") Satellite Name
+      input#name.form-control(type="text" name="name" value=satellite.name)
+    div.form-group
+      label(for="position") Position
+      input#position.form-control(type="number" name="position" value=satellite.position)
+    div.form-group
+      label(for="description") Description
+      textarea#description.form-control(name="description")= satellite.description
+    button.btn.btn-primary(type="submit") Update

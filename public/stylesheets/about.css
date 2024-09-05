@@ -1,0 +1,12 @@
+.contributor-name {
+    color: limegreen;
+}
+
+.contributor-image {
+    width: 150px; /* Set a fixed width */
+    height: 150px; /* Set a fixed height */
+    object-fit: cover; /* Ensures the image covers the entire area without distortion */
+}
+.contributors {
+    color: orangered;
+}

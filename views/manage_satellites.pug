@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    h1 Manage Satellites
+    table.table.table-striped
+      thead
+        tr
+          th Name
+          th Position
+          th Actions
+      tbody
+        each satellite in satellites
+          tr
+            td #{satellite.name}
+            td #{satellite.position}°
+            td
+              a.btn.btn-primary(href=`/my-sat/satellite/${satellite._id}/update`) Update
+              a.btn.btn-danger(href=`/my-sat/satellite/${satellite._id}/delete`) Delete

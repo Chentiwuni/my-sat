@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  .row
+    .col-12.product-description-image
+      h1.display-4.product-name.mb-3= product.title
+      img(src=`/images/${product.image_url}` class="img-fluid" alt=`${product.title}` loading="lazy")
+      .mt-3
+        .dropdown
+          button.btn.btn-primary.dropdown-toggle(type="button" id="orderDropdown" data-bs-toggle="dropdown" aria-expanded="false") Order NOW
+          ul.dropdown-menu(aria-labelledby="orderDropdown")
+            li
+              a.dropdown-item(onclick="makeCall()")
+                button.btn.btn-success CALL
+            li
+              a.dropdown-item(href="https://wa.me/233543328021")
+                button.btn.btn-success WHATSAPP
+      p.lead
+        h6 General Description
+      p.lead.mt-3.describe= product.description
+
+  .container.d-flex.justify-content-center.mt-3.related-product-title
+    h5 Related Products 
+
+  .container.related-product-main-div.d-flex.justify-content-center.mt-3
+    .carousel.slide#carouselExample
+      .carousel-inner
+        each relatedProduct, index in allProducts
+          .carousel-item(class=index === 0 ? 'active' : '')
+            button.btn.btn-light
+              a(href=`${relatedProduct.url}`)
+                .card.p-0(style="width: 18rem;")
+                  img.card-img-top(src=`/images/${relatedProduct.image_url}` alt=`${relatedProduct.title}`)
+                  .card-body.p-0
+                    h5.card-title= relatedProduct.title
+                    p.card-text.fw-bold.price GHC#{relatedProduct.price}
+
+      button.carousel-control-prev(type="button" data-bs-target="#carouselExample" data-bs-slide="prev")
+        span.carousel-control-prev-icon(aria-hidden="true")
+        span.visually-hidden Previous
+      button.carousel-control-next(type="button" data-bs-target="#carouselExample" data-bs-slide="next")
+        span.carousel-control-next-icon(aria-hidden="true")
+        span.visually-hidden Next

@@ -1,0 +1,31 @@
+extends admin_layout
+
+block content
+    h1 Add New Satellite
+
+    form(action='/my-sat/satellite/create' method='POST')
+      .mb-3
+        label(for='name') Satellite Name:
+        input#name.form-control(type='text', name='name', value=satellite ? satellite.name : '', required=true)
+        if errors
+          each error in errors
+            if error.param === 'name'
+              .text-danger= error.msg
+
+      .mb-3
+        label(for='position') Satellite Position (in degrees):
+        input#position.form-control(type='text', name='position', value=satellite ? satellite.position : '', required=true)
+        if errors
+          each error in errors
+            if error.param === 'position'
+              .text-danger= error.msg
+
+      .mb-3
+        label(for='description') Satellite Description:
+        textarea#description.form-control(name='description', required=true)= satellite ? satellite.description : ''
+        if errors
+          each error in errors
+            if error.param === 'description'
+              .text-danger= error.msg
+
+      button.btn.btn-primary(type='submit') Add Satellite

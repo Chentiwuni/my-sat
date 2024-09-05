@@ -1,0 +1,16 @@
+extends admin_layout
+
+block content
+  h1= title
+  table.table.table-striped
+    thead
+      tr
+        th Username
+        th Actions
+    tbody
+      each admin in admins
+        tr
+          td= admin.username
+          td
+            a(href=`/my-sat/admin/${admin._id}/update`, class='btn btn-primary') Update
+            a(href=`/my-sat/admin/${admin._id}/delete`, class='btn btn-danger') Delete

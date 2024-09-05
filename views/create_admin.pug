@@ -1,0 +1,23 @@
+extends admin_layout
+
+block content
+  h1= title
+
+  if error
+    div(class="alert alert-danger")= error
+  
+  if errors
+    each err in errors
+      div(class="alert alert-danger")= err.msg
+  
+  form(action='/my-sat/create_admin', method='POST')
+    .mb-3
+      label(for='username', class='form-label') Username
+      input(type='text', name='username', class='form-control', id='username', placeholder='Enter username')
+    .mb-3
+      label(for='password', class='form-label') Password
+      input(type='password', name='password', class='form-control', id='password', placeholder='Enter password')
+    .mb-3
+      label(for='confirmPassword', class='form-label') Confirm Password
+      input(type='password', name='confirmPassword', class='form-control', id='confirmPassword', placeholder='Confirm password')
+    button(type='submit', class='btn btn-primary') Register

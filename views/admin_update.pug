@@ -1,0 +1,20 @@
+extends admin_layout
+
+block content
+  h1= title
+
+  if errors
+    ul
+      each error in errors
+        li.text-danger= error.msg
+
+  form(action=`/my-sat/admin/${admin._id}/update`, method='POST')
+    div.form-group
+      label(for='username') Username
+      input(type='text', name='username', value=admin.username, class='form-control', id='username', placeholder='Enter username')
+
+    div.form-group
+      label(for='password') Password
+      input(type='password', name='password', class='form-control', id='password', placeholder='Enter password (leave blank to keep current password)')
+
+    button(type='submit', class='btn btn-primary') Update Admin

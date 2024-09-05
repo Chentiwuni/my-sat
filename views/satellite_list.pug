@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    // Main body content
+    .mt-3.d-flex.justify-content-center.track-text
+      h5 These are List of Ku band satellites trackable in West Africa, specifically Ghana with at least 60CM dish size.
+    hr
+    .satellite-list-container.row
+      each satellite in satellites
+        .col-12.col-md-6.d-flex.justify-content-center.mt-3
+          h5
+            a(href=satellite.url) #{satellite.name}

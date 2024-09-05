@@ -1,0 +1,12 @@
+extends admin_layout
+
+block content
+    h1 Manage Frequencies
+    each frequency in frequencies
+      .row.mb-3
+        .col-md-8
+          h5 #{frequency.frequency} (#{frequency.satelliteName})
+          p Channels: #{frequency.channels.map(c => c.name).join(', ')}
+        .col-md-2
+          a.btn.btn-warning(href=`/my-sat/frequency/${frequency._id}/update`) Update
+          a.btn.btn-danger(href=`/my-sat/frequency/${frequency._id}/delete`) Delete

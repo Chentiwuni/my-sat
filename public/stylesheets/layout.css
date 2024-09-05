@@ -1,0 +1,67 @@
+.main-container {
+  background-color: beige;
+}
+
+.logo_text_1, .logo_text_2 {
+  width: 60%;
+  height: 60%;
+  margin-right: -5px;
+  text-align: center;
+}
+
+.logo_text_1 {
+  background-color: #c5373c;
+  color: #C2DFFF;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.logo_text_2 {
+  background-color: #C2DFFF;
+  color: #c5373c;
+  border-radius: 0px 5px 5px 0px;
+}
+
+.container {
+  width: 100vw;
+}
+
+.top-info-container {
+  width: 100%;
+  height: 100px;
+  background-color: white;
+}
+
+.top-info-left {
+  width: 50%;
+  height: 100%;
+  color: orangered;
+}
+
+.top-info-right {
+  width: 50%;
+  height: 100%;
+}
+
+.caller-button {
+  width: 100%;
+  height: 50%;
+}
+
+.track-satellite {
+  width: 100%;
+  height: 50%;
+}
+
+.track-satellite a {
+  text-decoration: none;
+  color:black;
+}
+
+.footer {
+  background-color: slategrey;
+}
+
+.footer-anchor {
+  text-decoration: none;
+  color: white;
+}

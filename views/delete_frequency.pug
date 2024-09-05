@@ -1,0 +1,8 @@
+extends admin_layout
+
+block content
+    h1 Delete Frequency
+    p Are you sure you want to delete the frequency "#{frequency.frequency}"?
+    form(action=`/my-sat/frequency/${frequency._id}/delete` method="POST")
+      button.btn.btn-danger(type="submit") Yes, Delete
+      a.btn.btn-secondary(href="/my-sat/manage_frequencies") Cancel

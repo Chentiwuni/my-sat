@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  if products.length
+    .row.mt-3
+      each product in products
+        .col-6.col-md-3
+          button(type='button' class='btn btn-light')
+            a(href=product.url)
+              .card.p-0
+                img.card-img-top(src='images/' + product.image_url alt=product.title loading='lazy')
+                .card-body.p-0
+                  h5.card-title= product.title
+                  p.card-text.fw-bold= 'GHC' + product.price
+  else
+    p There is no products to sell.              

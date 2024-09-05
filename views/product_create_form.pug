@@ -1,0 +1,28 @@
+extends admin_layout
+
+block content
+  h1= title
+
+  form(method='POST' enctype='multipart/form-data')
+    .form-group
+      label(for='title') Title:
+      input#title.form-control(type='text' name='title' required)
+
+    .form-group
+      label(for='price') Price:
+      input#price.form-control(type='text' name='price' required)
+
+    .form-group
+      label(for='description') Description:
+      textarea#description.form-control(name='description' rows='4' required)
+
+    .form-group
+      label(for='image') Image:
+      input#image.form-control(type='file' name='image' required)
+
+    button.btn.btn-primary(type='submit') Add Product
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg
