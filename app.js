@@ -1,3 +1,4 @@
+require('dotenv').config();
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -12,7 +13,7 @@ const app = express();
 // Set up mongoose connection
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
-const mongoDB = "mongodb+srv://chienntiwuni:ismaaeel8952@cluster0.jxwr8xd.mongodb.net/my_sat?retryWrites=true&w=majority&appName=Cluster0";
+const mongoDB = process.env.MONGODB_URI;
 
 main().catch((err) => console.log(err));
 async function main() {
@@ -32,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Set up session middleware
 app.use(session({
-  secret: 'ismaaeel8952/12',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
   cookie: { secure: false, } // Set to true in production with HTTPS
