@@ -2,6 +2,9 @@ const { body, validationResult } = require('express-validator');
 const products = require("../models/products");
 const asyncHandler = require("express-async-handler");
 const upload = require("../middleware/file_uploads");
+const fs = require('fs');
+const path = require('path');
+
 
 //GET request for product detail page
 exports.product_detail = asyncHandler(async (req, res, next) => {
@@ -83,13 +86,23 @@ exports.product_delete_get = asyncHandler(async (req, res) => {
 
 // Handle product delete on POST.
 exports.product_delete_post = asyncHandler(async (req, res) => {
-  const product = await products.findByIdAndDelete(req.params.id);
+  const product = await products.findById(req.params.id);
   if (!product) {
     res.status(404);
     throw new Error('Product not found');
   }
+
+  // Delete the image
+  const imagePath = path.join(__dirname, '..', 'public', 'images', product.image_url);
+  fs.unlink(imagePath, (err) => {
+      if (err) console.error('Failed to delete image:', err);
+  });
+
+  await products.findByIdAndDelete(req.params.id);
+
   res.redirect('/my-sat/manage_products');
 });
+
 // Display product update form on GET.
 exports.product_update_get = asyncHandler(async (req, res) => {
   const product = await products.findById(req.params.id);
