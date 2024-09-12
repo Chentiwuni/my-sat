@@ -4,7 +4,7 @@ block content
   .row
     .col-12.product-description-image
       h1.display-4.product-name.mb-3= product.title
-      img(src=`/images/${product.image_url}` class="img-fluid" alt=`${product.title}` loading="lazy")
+      img(src=`/images/${product.image_url}` class="img-fluid product-detail-img" alt=`${product.title}` loading="lazy")
       .mt-3
         .dropdown
           button.btn.btn-primary.dropdown-toggle(type="button" id="orderDropdown" data-bs-toggle="dropdown" aria-expanded="false") Order NOW
